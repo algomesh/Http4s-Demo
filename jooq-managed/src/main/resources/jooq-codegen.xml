@@ -1,0 +1,47 @@
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.18.0.xsd">
+    <jdbc>
+        <driver>org.h2.Driver</driver>
+        <url>jdbc:h2:file:./db/database</url>
+        <user>admin</user>
+        <password>123456789</password>
+    </jdbc>
+
+    <generator>
+        <name>org.jooq.codegen.ScalaGenerator</name>
+
+        <database>
+            <includeTables>true</includeTables>
+            <includePrimaryKeys>true</includePrimaryKeys>
+            <includeUniqueKeys>true</includeUniqueKeys>
+
+            <includeSystemTables>false</includeSystemTables>
+            <includeInvisibleColumns>false</includeInvisibleColumns>
+            <includeEmbeddables>false</includeEmbeddables>
+            <includeRoutines>false</includeRoutines>
+            <includePackages>false</includePackages>
+            <includePackageRoutines>false</includePackageRoutines>
+            <includePackageUDTs>false</includePackageUDTs>
+            <includePackageConstants>false</includePackageConstants>
+            <includeUDTs>false</includeUDTs>
+            <includeDomains>false</includeDomains>
+            <includeSequences>false</includeSequences>
+            <includeSystemSequences>false</includeSystemSequences>
+
+            <includes>
+                PUBLIC\.USERS
+            </includes>
+
+            <schemata>
+                <schema>
+                    <inputSchema>PUBLIC</inputSchema>
+                    <outputSchemaToDefault>true</outputSchemaToDefault>
+                </schema>
+            </schemata>
+        </database>
+
+        <target>
+            <packageName>com.github.algomesh.jooq.generated</packageName>
+            <directory>jooq-managed/src/main/scala</directory>
+        </target>
+    </generator>
+</configuration>
