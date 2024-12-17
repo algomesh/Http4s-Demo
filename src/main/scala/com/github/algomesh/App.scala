@@ -3,7 +3,11 @@ package com.github.algomesh
 import cats.effect.{IO, IOApp, Resource}
 import com.github.algomesh.config.{AppConfig, DatabaseConfig, HttpConfig}
 import com.github.algomesh.global.http.AbstractController
+import com.github.algomesh.health.HealthCheckController
 import com.github.algomesh.jooq.*
+import com.github.algomesh.user.UserController
+import com.github.algomesh.user.repository.UserRepositoryImpl
+import com.github.algomesh.user.service.UserService
 import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
 import org.http4s.HttpApp
@@ -21,9 +25,16 @@ object App extends IOApp.Simple {
 
       dataSource <- datasourceResource(config.databaseConfig)
       given Jooq[IO] = Jooq[IO](dataSource)
-      
+
+      healthCheckController = HealthCheckController[IO]()
+
+      userRepository = UserRepositoryImpl[IO]()
+      userService = UserService[IO](userRepository)
+      userController = UserController[IO](userService)
+
       app = httpApp(
-        new health.Controller[IO]
+        healthCheckController,
+        userController
       )
 
       httpServer <- server(config.httpConfig, app)

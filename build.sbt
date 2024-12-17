@@ -12,6 +12,7 @@ lazy val http4sBlazeServerVersion = "0.23.17"
 lazy val h2Version = "2.3.232"
 lazy val hikariCPVersion = "6.2.1"
 lazy val flywayCoreVersion = "11.0.1"
+lazy val chimneyVersion = "1.5.0"
 
 lazy val root = (project in file("."))
   .settings(
@@ -36,6 +37,9 @@ lazy val root = (project in file("."))
         "org.http4s" %% "http4s-dsl" % http4sVersion,
         "org.http4s" %% "http4s-circe" % http4sVersion,
         "org.http4s" %% "http4s-blaze-server" % http4sBlazeServerVersion,
+
+        // chimney
+        "io.scalaland" %% "chimney" % chimneyVersion,
 
         // logging
         "ch.qos.logback" % "logback-classic" % logbackClassicVersion,

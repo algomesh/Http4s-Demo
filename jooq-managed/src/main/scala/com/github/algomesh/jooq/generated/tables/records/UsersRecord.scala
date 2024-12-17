@@ -81,16 +81,16 @@ class UsersRecord extends UpdatableRecordImpl[UsersRecord](Users.USERS) {
   def getDob: LocalDate = get(4).asInstanceOf[LocalDate]
 
   /**
-   * Setter for <code>USERS.CREATED_DATA</code>.
+   * Setter for <code>USERS.CREATED_DATE</code>.
    */
-  def setCreatedData(value: LocalDate): Unit = {
+  def setCreatedDate(value: LocalDate): Unit = {
     set(5, value)
   }
 
   /**
-   * Getter for <code>USERS.CREATED_DATA</code>.
+   * Getter for <code>USERS.CREATED_DATE</code>.
    */
-  def getCreatedData: LocalDate = get(5).asInstanceOf[LocalDate]
+  def getCreatedDate: LocalDate = get(5).asInstanceOf[LocalDate]
 
   /**
    * Setter for <code>USERS.IS_ENABLED</code>.
@@ -113,7 +113,7 @@ class UsersRecord extends UpdatableRecordImpl[UsersRecord](Users.USERS) {
   /**
    * Create a detached, initialised UsersRecord
    */
-  def this(id : UUID, email : String, firstName : String, lastName : String, dob : LocalDate, createdData : LocalDate, isEnabled : Boolean) = {
+  def this(id : UUID, email : String, firstName : String, lastName : String, dob : LocalDate, createdDate : LocalDate, isEnabled : Boolean) = {
     this()
 
     this.setId(id)
@@ -121,7 +121,7 @@ class UsersRecord extends UpdatableRecordImpl[UsersRecord](Users.USERS) {
     this.setFirstName(firstName)
     this.setLastName(lastName)
     this.setDob(dob)
-    this.setCreatedData(createdData)
+    this.setCreatedDate(createdDate)
     this.setIsEnabled(isEnabled)
     resetChangedOnNotNull()
   }

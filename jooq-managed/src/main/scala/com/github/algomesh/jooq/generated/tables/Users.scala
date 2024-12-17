@@ -103,9 +103,9 @@ extends TableImpl[UsersRecord](
   val DOB: TableField[UsersRecord, LocalDate] = createField(DSL.name("DOB"), SQLDataType.LOCALDATE, "")
 
   /**
-   * The column <code>USERS.CREATED_DATA</code>.
+   * The column <code>USERS.CREATED_DATE</code>.
    */
-  val CREATED_DATA: TableField[UsersRecord, LocalDate] = createField(DSL.name("CREATED_DATA"), SQLDataType.LOCALDATE, "")
+  val CREATED_DATE: TableField[UsersRecord, LocalDate] = createField(DSL.name("CREATED_DATE"), SQLDataType.LOCALDATE, "")
 
   /**
    * The column <code>USERS.IS_ENABLED</code>.

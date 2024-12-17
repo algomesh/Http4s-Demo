@@ -5,6 +5,6 @@ create table users
     first_name   varchar(20) not null,
     last_name    varchar(20),
     dob          date,
-    created_data date,
+    created_date date,
     is_enabled   boolean
 )
